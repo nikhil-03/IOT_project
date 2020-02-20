@@ -1,0 +1,51 @@
+1. INSTALL ESP8266 BOARD
+   >File--Preferences.
+   >Paste the additional Boards Manager URL.
+      "http://arduino.esp8266/stable/package_esp8266com_index.json"
+   >Tools--Boards--Boards Manager.
+   > Find "esp8266 by ESP8266 community" and Install it.
+
+2. INSTALL ARDUINO JSON LIBRARY
+   >Tools--Boards--Boards Manager.
+   >Find "Arduino Json" and install it.
+
+   NOTE:
+   INSTALL ONLY VERSION 5.__.__ !!!
+   DONT INSTALL VERSION 6.__.__ !!!
+
+3.  FIREBASE START
+   >Go to the Firebase website.
+   >Create new project. 
+   >Open the project.
+   >Go to settings. (next to project overview)
+   >Click on "Service Accounts" tab.
+   >Click on database secrets.
+   >Copy the secret into notepad.
+   >Click on database and then view realtime database.
+   >Copy the URL without "http://" and the last "/" into notepad.
+
+4.  MODIFY THE CODE
+   >Open the code.
+   >Make the following changes to it:
+   >FIREBASE_HOST"(add the copied URL)"
+   >FIREBASE_AUTH"(paste the copied secret)"
+   >WIFI_SSID"(Name of the Wifi network you wish to connect to)"
+   >WIFI_PASSWORD"(Password of the Wifi)"
+
+
+
+!!!!!! NOTE !!!!!!
+There may be an error in the serial monitor that says 
+"Setting /number failed"
+
+To fix this error follow these steps:
+1.Go to "http://www.grc.com/fingerprints.htm"
+2.Paste the Google Firebase host link.
+3.Copy the fingerprint.
+4.Open the folder containing the Arduino
+  "Arduino\libraries\firebase-arduino-master\src\firebaseHttpClient"  (this is a header file)
+5.Open the header file and replace the fingerprint
+  static const char kFirebaseFirebse[] = "HERE:HERE:HERE:HERE"
+6.Save the header file and go to the code.
+7.Compile, Upload and Open the serial monitor and the realtime database to view the updates.
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>Control Panel</title>
+ 	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<style type="text/css">
+	.swapnil {
+      background: #2c3e50;
+    }
+    #swap {
+      color:white;
+    }
+    .smicon{
+    	width:32px;
+    	height:32px;
+    	/*padding-right: 20px;*/
+    }
+    .textjumbo{
+    	font-size: 3.0em;
+/*    	text-align: bottom;
+    	padding-top: 50px;*/
+    }
+    p[class="fa textjumbo"] {
+    	display: inline;
+    	padding-left: 20px;
+    }
+    .padleft{
+    	padding-left: 10px;
+    }
+	</style>
+ </head>
+ <body>
+ 	<nav class="navbar fixed-top navbar-expand-lg navbar-light swapnil">
+		<div class="container">
+			<img src="https://www.svgrepo.com/show/103557/plug.svg" class="smicon">
+		  <a class="navbar-brand padleft" id="swap" href="#">AUTOVATE</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" id="swap" href="#">About<span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" id="swap" href="#">Contact<span class="sr-only">(current)</span></a>
+		      </li>
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		 	<ul class="navbar-nav mr-auto">
+		 		<li class="nav-item active"><a class="btn my-2 my-sm-0" id="swap" href="file:///Z:/SummerISRE/Web%20Dev/IoT%20Website/Signup/sign-up-page.html">Sign Up</a></li>
+			    <li class="nav-item active"><a class="btn my-2 my-sm-0" id="swap" href="file:///Z:/SummerISRE/Web%20Dev/IoT%20Website/Login%20Page/index.html">Login</a></li>
+		 	</ul>
+		      
+		    </form>
+		  </div>
+	  </div>
+	</nav>
+	<br><br><br>
+	<div class="container">
+		<div class="custom-control custom-switch text-center">
+		  <input type="checkbox" class="custom-control-input" id="customSwitches">
+		  <label class="custom-control-label" for="customSwitches">
+		  <span id="relaytext">	Turn Device ON/OFF </span>
+		  </label>
+		</div>
+		
+	</div>
+	<br>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2 col-md-5 col-sm-12 border border-primary rounded text-center">
+			<div><br>
+				Temperature:<br>
+				<span class="temperature font-weight-bold h4"></span><br><br>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+
+
+
+		<div class="col-lg-2 col-md-5 col-sm-12 border border-warning rounded text-center">
+			<div><br>
+				Motion:<br>
+				<span class="motion font-weight-bold h4"></span><br><br>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+
+
+		<div class="col-lg-2 col-md-5 col-sm-12 border border-success rounded text-center">
+			<div><br>
+				Status of First Clap:<br>
+				<span class="fclap font-weight-bold h4"></span><br><br>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+
+
+		<div class="col-lg-2 col-md-5 col-sm-12 border border-danger rounded text-center">
+			<div><br>
+				Status of Second Clap:<br>
+				<span class="sclap font-weight-bold h4"></span><br><br>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	
+	</div>
+</div>
+<br><br>
+	<div class="container">
+		<form>
+		<div class="row">
+			<div class="col-lg-2 col-md-5 col-sm-12 border border-dark rounded-pill text-center">
+				<div>
+					<br>
+					<label class="radio-inline">
+					<input type="radio" name="optradio" onclick="zeroo()">Temperatue
+					</label>
+					<br><br>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-lg-2 col-md-5 col-sm-12 border border-dark rounded-pill text-center">
+				<div>
+					<br>
+					<label class="radio-inline">
+					<input type="radio" name="optradio" onclick="onee()">Motion
+					</label>
+					<br><br>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-lg-2 col-md-5 col-sm-12 border border-dark rounded-pill text-center">
+				<div>
+					<br>
+					<label class="radio-inline">
+					<input type="radio" name="optradio" onclick="twoo()">Clap
+					</label>
+					<br><br>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-lg-2 col-md-5 col-sm-12 border border-dark rounded-pill text-center">
+				<div>
+					<br>
+					<label class="radio-inline">
+					<input type="radio" name="optradio" onclick="threee()">Time
+					</label>
+					<br><br>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		</form>
+	</div>
+
+<br><br>
+
+<!-- This is the for temperature dropdown menu for the user programmability -->
+
+	<div class="container" id="zero" style="visibility:hidden">
+		<form>
+		  <div class="form-row align-items-center">
+		    <div class="col-auto my-1">
+		      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelectTemp">Preference</label>
+		      <select class="custom-select mr-sm-6" id="inlineFormCustomSelectTemp">
+		        <option selected>Select the following</option>
+		        <option value="above">Above</option>
+		        <option value="below">Below</option>
+		      </select>
+		    </div>
+		    <div class="col-auto my-1">
+		      		<label class="sr-only" for="inlineFormInputNameTemp">Name</label>
+		      		<input type="text" class="form-control" id="inlineFormInputNameTemp" placeholder="In Celcius">
+		    </div>
+		    <div class="col-auto my-1">
+		      <button type="button" class="btn btn-primary" onclick="tempsave()">Submit</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+
+
+<!-- This is the for motion dropdown menu for the user programmability -->
+
+	<div class="container" id="one" style="visibility:hidden">
+		<form>
+		  <div class="form-row align-items-center">
+		    <div class="col-auto my-1">
+		      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelectMotion">Preference</label>
+		      <select class="custom-select mr-sm-6" id="inlineFormCustomSelectMotion">
+		        <option selected>Select the following</option>
+		        <option value="motion">When motion is detected</option>
+		        <option value="nomotion">When motion is absent</option>
+		      </select>
+		    </div>
+		    <div class="col-auto my-1">
+		      <button type="button" class="btn btn-primary" onclick="motionsave()">Submit</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+
+
+<!-- This is the for clap dropdown menu for the user programmability -->
+
+	<div class="container" id="two" style="visibility:hidden">
+		<form>
+		  <div class="form-row align-items-center">
+		    <div class="col-auto my-1">
+		      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelectClap">Preference</label>
+		      <select class="custom-select mr-sm-6" id="inlineFormCustomSelectClap">
+		        <option selected>Select the following</option>
+		        <option value="single">Single Clap</option>
+		        <option value="double">Double Clap</option>
+		      </select>
+		    </div>
+		    <div class="col-auto my-1">
+		      <button type="button" class="btn btn-primary" onclick="clapsave()">Submit</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+
+
+
+
+	<div class="container" id="three" style="visibility:hidden">
+		<form>
+			<div class="form-row align-items-center">
+		    	<div class="col-sm-3 my-1">
+		      		<label class="sr-only" for="inlineFormInputNameTime">Name</label>
+		      		<input type="text" class="form-control" id="inlineFormInputNameTime" placeholder="After how many hours">
+		    	</div>
+		    	<div class="col-auto my-1">
+		      		<button type="button" class="btn btn-primary" onclick="timesave()">Submit</button>
+		    	</div>
+		  	</div>
+		</form>
+	</div>
+
+
+
+
+
+
+	<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>

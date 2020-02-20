@@ -1,0 +1,11 @@
+Created by: Randa Shady
+rshady@hawk.iit.edu
+
+What does the code do?
+- It records live videos from a webcam and it recognizes human's face in case of motion. If the user presses space, a picture will be taken and saved, and if the user presses ESC the program will exit.
+
+How does it work?
+- It inherts already implemented codes for face recognition.
+- The method face detector analyzes the dimensions of the captured object to decide if it's a face or not.
+- The camera records live videos and recognizes the faces, and the video is saved.
+- If the user presses space a picture will be saved.

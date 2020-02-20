@@ -1,0 +1,12 @@
+Created by Randa Shady
+rshady@hawk.iit.edu
+
+What does the code do?
+- It uses open CV to record live videos using a webcam.
+
+How does it work?
+- The output is defined first as a video with the needed resolution.
+- While the camera is open, the code returns the read frames and adds them to the video
+- If the user presses space, a picture is captured and saved.
+- As long as the user didn't press ESC, the recorded video is saved and all the used windows are closed.
+- When the user presses ESC, the pictures and the video are saved.
